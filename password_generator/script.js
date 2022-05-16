@@ -15,18 +15,20 @@ const randomFunc = {
 };
 
 clipboardEl.addEventListener('click', () => {
-    const textarea = document.createElement('textarea')
-    const password = resultEl.innerText
+  const textarea = document.createElement('textarea');
+  const password = resultEl.innerText;
 
-    if(!password) { return }
+  if (!password) {
+    return;
+  }
 
-    textarea.value = password
-    document.body.appendChild(textarea)
-    textarea.select()
-    document.execCommand('copy')
-    textarea.remove()
-    alert('Password copied to clipboard')
-})
+  textarea.value = password;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  textarea.remove();
+  alert('Password copied to clipboard');
+});
 
 generateEl.addEventListener('click', () => {
   const length = +lengthEl.value;
@@ -47,7 +49,7 @@ generateEl.addEventListener('click', () => {
 function generatePassword(upper, lower, number, symbol, length) {
   let generatedPassword = '';
   const typesCount = upper + lower + number + symbol;
-  const typesArray = [{ upper }, {lower}, { number }, { symbol }].filter(
+  const typesArray = [{ upper }, { lower }, { number }, { symbol }].filter(
     (item) => Object.values(item)[0]
   );
 
